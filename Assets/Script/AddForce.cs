@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
  
 public class AddForce : MonoBehaviour {
-    private Vector3 latestPos; 
+    //private Vector3 latestPos; 
     //一秒間に一定の回数呼ばれる
     void FixedUpdate()
     {
@@ -15,9 +15,9 @@ public class AddForce : MonoBehaviour {
         Rigidbody rb = GetComponent<Rigidbody>();
  
         //Rigidbodyに力を加える
-        rb.AddForce(x, 0, z);
+        rb.AddForce(0, 0,z*2);
 
-        //変更点
+        /*変更点
         Vector3 diff = transform.position - latestPos;   //前回からどこに進んだかをベクトルで取得
         latestPos = transform.position;  //前回のPositionの更新
 
@@ -26,5 +26,8 @@ public class AddForce : MonoBehaviour {
         {
         transform.rotation = Quaternion.LookRotation(diff); //向きを変更する
         }
+        */
+        transform.Rotate(0,Input.GetAxis("Horizontal"),0); //向きを変更する
+        
     }
 }
